@@ -1,0 +1,1411 @@
+﻿=== Slide 1 ===
+《
+OpenLayers
+进阶应用》
+第六章
+OpenLayers
+进阶应用
+
+=== Slide 2 ===
+6.1 
+多源数据加载
+数据加载原理
+1
+矢量数据加载
+2
+公共地图加载
+3
+G
+eoServer
+地图加载
+4
+多源数据叠加
+5
+
+=== Slide 3 ===
+6.1.1 
+数据加载原理
+地图展示由“图层 
++ 
+数据源”构成：图层（如 
+Image
+、
+Tile
+、
+Vector
+）负责渲染显示，数据源（如 
+ol
+/source/Image
+、
+Tile
+、
+Vector
+）提供实际内容。
+三类常见图层类型分别对应不同的数据加载方式，如 
+Image 
+图层适合单幅图像和 
+WMS 
+服务，
+Tile 
+图层用于加载瓦片地图，
+Vector 
+图层支持加载矢量要素（
+GeoJSON
+、
+KML 
+等）并可自定义样式。
+左图展示了图层与数据源的对应关系及其继承结构。
+
+=== Slide 4 ===
+6.1.2 
+矢量数据加载
+▶ 作用
+用于在地图上加载并展示标准化的矢量空间数据，支持空间对象的可视化呈现。
+▶ 用途
+方便用户接入多源空间数据、支持地理要素的展示以及样式渲染。
+广泛应用于地理信息系统展示，专题图制作，空间分析等场景。
+▶ 特点
+兼容主流格式（如
+KML
+、
+GeoJSON
+），支持点线面等多种几何类型。加载方式灵活，数据结构清晰。
+
+=== Slide 5 ===
+6.1.2 
+加载
+GeoJSON
+数据
+效果展示
+：
+通过加载
+GeoJSON
+省级边界数据，并结合
+OpenLayers
+的矢量图层支持，实现了行政区划的可视化渲染。
+
+=== Slide 6 ===
+6.1.2 
+加载
+GeoJSON
+数据
+创建地图对象
+：新建一个
+Vue
+页面，并集成加载天地图作为底图服务，同时设置地图的初始视图中心位置。
+加载
+GeoJSON
+数据
+：读取
+GeoJSON
+数据，借助
+GeoJSON
+格式解析器对数据进行解析，将其转换为可识别的数据格式。
+创建图层
+：创建矢量数据源以及矢量图层，并将矢量图层添加到地图。
+//
+创建矢量数据源
+const 
+vectorSource
+ = new 
+VectorSource
+({
+        url: "/
+province.geojson
+", // 
+你的
+GeoJSON
+文件路径
+format: new 
+GeoJSON
+(),
+});
+//
+定义矢量图层
+const 
+vectorLayer
+ = new 
+VectorLayer
+({
+        source: 
+vectorSource
+,
+        style: new Style({
+            image: new 
+CircleStyle
+({
+            radius: 5,
+            fill: new Fill({ color: "#ff0000" }),
+          }),
+        }),
+});
+//
+添加矢量图层到地图
+map.value.addLayer
+(
+vectorLayer
+);
+关键代码：
+实现流程：
+
+=== Slide 7 ===
+6.1.2 
+加载
+KML
+数据
+效果展示
+：
+通过引入地震数据的
+KML
+文件，系统实现了地震点的地图撒点与信息标注功能。结合
+OpenLayers
+的矢量图层支持，可直观展示每次地震的震级、时间与地理位置。
+
+=== Slide 8 ===
+6.1.2 
+加载
+KML
+数据
+创建地图对象
+：新建一个
+Vue
+页面，并集成加载天地图作为底图服务，同时设置地图的初始视图中心位置。
+加载
+KML
+数据
+：读取
+KML
+数据，借助
+KML
+格式解析器对数据进行解析，将其转换为可识别的数据格式。
+创建图层
+：创建矢量数据源以及矢量图层，并将矢量图层添加到地图。
+// 
+加载 
+KML 
+数据
+const 
+kmlUrl
+ = "/
+earthquakes.kml
+"; // 
+你的 
+KML 
+文件路径
+// 
+使用 
+fetch 
+请求 
+KML 
+数据
+const response = fetch(
+kmlUrl
+);
+const 
+kmlText
+ = 
+response.text
+();
+// 
+创建 
+KML 
+格式的解析器
+const 
+kmlFormat
+ = new KML();
+// 
+将 
+KML 
+数据解析为 
+OpenLayers
+矢量要素集
+const features = 
+kmlFormat.readFeatures
+(
+kmlText
+, {
+featureProjection
+: "EPSG:3857", // 
+定义坐标系
+});
+// 
+创建矢量数据源，并加载矢量要素集
+const 
+vectorSource
+ = new 
+VectorSource
+({features: features, // 
+将解析出的特征加载到数据源中
+});
+// 
+创建矢量图层
+const 
+vectorLayer
+ = new 
+VectorLayer
+({
+        source: 
+vectorSource
+,
+});
+// 
+将矢量图层添加到地图中
+map.value.addLayer
+(
+vectorLayer
+);
+关键代码：
+实现流程：
+
+=== Slide 9 ===
+6.1.3 
+公共地图加载
+▶ 作用
+提供多种主流公共地图服务源（如天地图、高德地图、百度地图），用于丰富地图底图样式，扩展地图应用的多样性与开放性。
+▶ 用途
+通过
+OpenLayers
+封装的图层与数据源接口，用户可快速接入在线地图服务，实现公共底图的加载展示，并可叠加业务图进行可视化开发。
+▶ 特点
+公共地图服务通常以瓦片形式存在，支持在线访问、免部署、资源丰富、兼容性强，适用于不同场景下的地图展示与交互应用。
+
+=== Slide 10 ===
+6.1.3 
+加载高德地图
+效果展示
+：
+通过
+OpenLayers
+加载高德地图作为底图，地图呈现清晰，视图响应流畅，验证了通过
+ol
+/source/XYZ
+接口加载第三方在线地图服务的可行性与实用性。
+
+=== Slide 11 ===
+6.1.3 
+加载高德地图
+创建地图对象
+：新建一个
+Vue
+页面，
+并创建一个
+Map
+对象
+，同时设置地图的初始视图中心位置。
+加载瓦片服务
+：创建一个
+TileLayer
+类型的图层，将数据源的
+URL
+设置为高德地图的瓦片服务。
+this.map
+=new Map({
+    target: 'map’,
+    layers: [ new 
+Tilelayer
+({
+        source: new XYZ({
+            url: 'https://wprd0{1-     	4}.is.autonavi.com/
+appmaptile?lang
+=	
+zh_cn&amp;size
+= 1&amp;style=7&amp;”+ 	“x={x}&amp;y={y}&amp;z={z}',
+             })
+         })
+    ],
+    view: new View({
+    // 
+将北京作为地图中心
+// 
+fromLonLat
+方法将经纬度转换成地图使用的坐标
+center: 
+fromLonLat
+([116.4, 39.9]),
+      zoom:2
+    }),
+})
+关键代码：
+实现流程：
+
+=== Slide 12 ===
+6.1.3 
+加载百度地图
+效果展示
+：
+通过
+OpenLayers
+加载百度地图作为底图，地图呈现清晰，视图响应流畅，验证了通过
+ol
+/source/XYZ
+接口加载第三方在线地图服务的可行性与实用性。
+
+=== Slide 13 ===
+6.1.3 
+加载百度地图
+创建地图对象
+：新建一个
+Vue
+页面，并创建一个
+Map
+对象，同时设置地图的初始视图中心位置。
+加载瓦片服务
+：创建一个
+TileLayer
+类型的图层，将数据源的
+URL
+设置为百度地图的瓦片服务。
+this.map
+ = new Map({
+    target: 'map',
+    layers: [
+      new 
+Tilelayer
+({
+        source: new XYZ({
+          url: 'http://online{1-	4}.map.bdimg.com/tile/?qt=
+tile&amp;x
+={x}	&amp;y={y}&amp;z={z}',
+        }),
+      }),
+    ],
+    view: new View({
+      // 
+将北京作为地图中心
+// 
+fromLonLat
+方法将经纬度转换成对应的坐标
+center: 
+fromLonLat
+([116.4, 39.9]),
+      zoom: 2,
+    }),
+});
+关键代码：
+实现流程：
+
+=== Slide 14 ===
+6.1.3 
+加载天地图
+效果展示
+：
+通过
+OpenLayers
+加载天地图作为底图，地图呈现清晰，视图响应流畅，验证了通过
+ol
+/source/XYZ
+接口加载第三方在线地图服务的可行性与实用性。
+
+=== Slide 15 ===
+6.1.3 
+加载天地图
+创建地图对象
+：新建一个
+Vue
+页面，并创建一个
+Map
+对象，同时设置地图的初始视图中心位置。
+加载瓦片服务
+：创建一个
+TileLayer
+类型的图层，通过配置天地图的
+XYZ
+数据源，加载天地图的矢量图层
+(
+vec_c
+)
+和矢量注记图层
+(
+cva_c
+)
+。每个图层都使用
+TileLayer
+的方式进行加载，并分别添加到地图中。
+onMounted
+(() =&gt; {
+    const 
+tdtKey
+ = "
+您的天地图密钥
+";
+    // 
+天地图矢量底图（
+vec_c
+）
+const 
+vecLayer
+ = new 
+TileLayer
+({
+      source: new XYZ({
+        url: `http://t{0-7}.tianditu.com/
+DataServer?T
+=
+vec_c&amp;x
+={x}&amp;y={y}&amp;l={z}`+
+`&amp;
+tk
+=${
+tdtKey
+}`,
+      }),
+    });
+    // 
+天地图中文注记图层（
+cva_c
+）
+const 
+labelLayer
+ = new 
+TileLayer
+({
+      source: new XYZ({
+        url: `http://t{0-7}.tianditu.com/
+DataServer?T
+=
+cva_c&amp;x
+={x}&amp;y={y}&amp;l={z}`+
+`&amp;
+tk
+=${
+tdtKey
+}`,
+      }),
+    });
+    // 
+创建地图
+map.value
+ = new Map({
+      target: "map",
+      layers: [
+vecLayer
+, 
+labelLayer
+], // 
+顺序很重要，注记图层应在底图之上
+view: new View({
+        center: 
+fromLonLat
+([116.4, 39.9]), // 
+北京坐标
+zoom: 6,
+      }),
+    });
+  });
+  return {map};
+关键代码：
+实现流程：
+
+=== Slide 16 ===
+6.1.4 
+GeoServer
+地图加载
+▶ 作用
+支持通过
+WMS
+接口加载由
+GeoServer
+发布的地图服务，实现地图图像的远程调用与可视化渲染。
+▶ 用途
+可用于叠加展示城市行政区划、专题图层等矢量数据，实现城市级别空间信息的可视化分析与浏览。
+▶ 特点
+加载方式灵活，支持 
+TileWMS
+与 
+ImageWMS
+两种形式；基于标准化服务地址即可调用，兼容性好、部署方便，便于与 
+OpenLayers
+等主流前端框架集成。
+
+=== Slide 17 ===
+6.1.4 
+GeoServer
+地图加载
+效果展示
+：
+加载由 
+GeoServer
+发布的 
+WMS 
+地图服务，将成都市行政区划矢量图层叠加至底图中。通过调整样式参数实现边界高亮与区域填充，进一步增强了地图的图层表达与空间认知效果。
+
+=== Slide 18 ===
+6.1.4 
+GeoServer
+地图加载
+创建地图对象
+：新建一个
+Vue
+页面，并创建一个
+Map
+对象，同时设置地图的初始视图中心位置。
+配置
+WMS
+服务相关参数
+：通过
+ol
+/source/
+TileWMS
+配置
+WMS
+服务，指定瓦片图层的
+url
+以及相关参数。
+叠加图层
+：将
+WMS
+格式的图层与其他底图（如天地图）一起添加到地图中。
+map.value
+ = new Map({
+  target: 'map', // 
+地图容器的
+ ID
+  layers: [
+      // 
+加载
+天地图
+为底图，与上述类似，此处省略
+      // 
+加载
+GeoServer
+发布的
+ WMS 
+图层
+      new 
+TileLayer
+({
+          source: new 
+TileWMS
+({
+            url: 'http://localhost:9090/
+geoserver
+/test/
+wms
+',  //WMS
+服务的
+ URL
+            params: {
+               LAYERS: '
+test:chengdu
+', // 
+你的
+ WMS 
+图层名称
+               TILED: true,  // 
+启用瓦片模式
+               VERSION: '1.1.0', 
+            },
+          }),
+       }),
+   ],
+   view: new View({
+      center: 
+fromLonLat
+([116.4, 39.9]), // 
+设置地图中心为北京
+      zoom: 6, // 
+设置地图初始缩放级别
+   }),
+});
+关键代码：
+实现流程：
+
+=== Slide 19 ===
+6.1.5 
+多源数据叠加
+▶ 作用
+实现同一地图容器内加载多个异构数据源（如 
+GeoJSON
+、
+KML
+、
+WMS
+），增强地图的综合表达能力与信息展示维度。
+▶ 用途
+满足系统中多源空间信息融合展示的需求，支持同时加载行政边界、地震事件、遥感图层等不同格式数据，广泛应用于灾害监测、城市管理、环境评估等场景。
+▶ 特点
+支持多格式数据（矢量与栅格）灵活叠加；图层顺序可控、坐标系需一致；可动态调整各图层样式与交互行为，实现数据的可视化、叠加比对与统一管理。
+
+=== Slide 20 ===
+6.1.5 
+多源数据叠加
+效果展示
+：实现
+多源异构空间数据的叠加显示。地图中同时加载了 
+GeoJSON
+格式的省级边界数据（
+province.geojson
+）、
+KML 
+格式的地震事件数据（
+earthquakes.kml
+）以及通过 
+GeoServer
+发布的 
+WMS 
+服务图层。各类图层在统一坐标系下精确叠加，实现了多源地理信息的可视化融合与一图呈现，有效提升了地图表达的完整性与空间分析的多维支撑能力。
+
+=== Slide 21 ===
+6.1.5 
+多源数据叠加
+创建地图对象
+：新建一个
+Vue
+页面，并创建一个
+Map
+对象，同时设置地图的初始视图中心位置。
+图层数据源
+：准备三种不同来源的数据，并生成相应格式的地图图层。
+叠加图层
+：将图层按照指定顺序加入到地图对象
+Map
+中进行可视化展示。
+const 
+geojsonLayer
+ = new 
+VectorLayer
+({
+    source: new 
+VectorSource
+({
+      url: "/
+province.geojson
+",
+      format: new 
+GeoJSON
+({
+dataProjection
+: "EPSG:4326",
+featureProjection
+: "EPSG:3857",
+      }),
+    }),
+  });
+const 
+kmlLayer
+ = new 
+VectorLayer
+({
+    source: new 
+VectorSource
+({
+      url: "/
+earthquakes.kml
+",
+      format: new KML({ 
+extractStyles
+: true }),
+    }),
+  });
+ const 
+wmsLayer
+ = new 
+TileLayer
+({
+    source: new 
+TileWMS
+({
+      url: "http://localhost:9090/
+geoserver
+/test/
+wms
+", // 
+替换为你的 
+GeoServer
+地址
+params: {
+        LAYERS: "
+test:chengdu
+", // 
+格式为 工作区
+:
+图层名
+TILED: true,
+        VERSION: "1.1.0",
+      },
+    }),
+  });
+关键代码：
+实现流程：
+
+=== Slide 22 ===
+6.2 
+地图打印输出
+▶ 作用
+实现地图当前视图区域的导出与保存，便于用户离线查看、资料归档或图件制作。
+▶ 用途
+用户可将地图当前显示区域以图片形式保存至本地，适用于成果快照生成、地图报告制作、打印输出等应用场景。
+▶ 特点
+支持基于
+Canvas
+渲染方式的地图区域导出，通过
+toDataURL
+方法快速获取图像数据，无需服务器端依赖，操作便捷；兼容主流浏览器，适应性强。
+
+=== Slide 23 ===
+6.2 
+地图打印输出
+效果展示
+：
+借助第三方插件 
+html2canvas 
+实现了将当前地图视图区域导出为图片的功能，用户可一键生成当前视图对应的静态图像，并通过浏览器保存到本地，实现地图图像的快速截取与导出。
+
+=== Slide 24 ===
+6.2 
+地图导出为图片
+创建地图对象
+：新建一个
+Vue
+页面，并集成加载天地图作为底图服务，同时设置地图的初始视图中心位置。
+添加按钮
+：添加“导出地图为图片”按钮。
+添加导出事件
+：为上述按钮添加导出为图片的点击相应事件。
+import { 
+onMounted
+, ref } from "
+vue
+";
+import html2canvas from "html2canvas";
+import "
+ol
+/ol.css";
+import { Map, View } from "
+ol
+";
+import { Tile as 
+TileLayer
+ } from "
+ol
+/layer";
+import { OSM } from "
+ol
+/source";
+onMounted
+(() =&gt; {
+map.value
+ = new Map({
+        target: "map",
+        layers: [
+          new 
+TileLayer
+({
+            source: new XYZ({
+              url: http://t{0-7}.tianditu.com/DataServer?x={x}&amp;y={y}&amp;l={z}&amp;T=vec_c&amp; +
+                  “
+tk
+=
+您的天地图密钥 
+",
+            }),
+          }),
+        ],
+});
+const 
+exportMap
+ = () =&gt; {
+      const 
+mapEl
+ = 
+document.getElementById
+("map");
+      html2canvas(
+mapEl
+).then((canvas) =&gt; {
+        const link = 
+document.createElement
+("a");
+link.download
+ = "map-export.png";
+link.href
+ = 
+canvas.toDataURL
+("image/
+png
+");
+link.click
+();
+      });
+    };
+return {
+map,exportMap
+,};
+关键代码：
+实现流程：
+
+=== Slide 25 ===
+6.2 
+地图打印输出
+效果展示
+：
+借助第三方插件
+html2canvas
+和
+jspdf
+成功实现了将当前地图区域以图像形式嵌入
+PDF
+文档的导出功能。用户可将地图视图高保真地保存为
+PDF
+文件，便于地图成果的归档管理、资料输出及线下打印使用，提升地图信息的共享与流转效率。
+
+=== Slide 26 ===
+6.2 
+地图导出为
+PDF
+创建地图对象
+：新建一个
+Vue
+页面，并集成加载天地图作为底图服务，同时设置地图的初始视图中心位置。
+添加按钮
+：添加“导出地图为
+PDF
+”按钮。
+添加导出事件
+：为上述按钮添加导出为
+PDF
+的点击相应事件。
+// 
+使用 
+jsPDF
+导出地图为 
+PDF
+import { 
+onMounted
+, ref } from "
+vue
+";
+import html2canvas from "html2canvas";
+import 
+jsPDF
+ from "
+jspdf
+";
+import "
+ol
+/ol.css";
+import { Map, View } from "
+ol
+";
+import { Tile as 
+TileLayer
+ } from "
+ol
+/layer";
+import { OSM } from "
+ol
+/source";
+const 
+exportPDF
+ = async () =&gt; {
+const 
+mapEl
+ = 
+document.getElementById
+("map");
+const canvas = await html2canvas(
+mapEl
+, { 
+useCORS
+: true });
+const 
+imgData
+ = 
+canvas.toDataURL
+("image/
+png
+");
+const pdf = new 
+jsPDF
+({
+     orientation: "landscape", // 
+横向
+unit: "
+px
+",
+      format: [
+canvas.width
+, 
+canvas.height
+],
+});
+pdf.addImage
+(
+imgData
+, "PNG", 0, 0, 
+canvas.width
+, 
+canvas.height
+);
+pdf.save
+("map-export.pdf");
+};
+return {
+    map,
+exportPDF
+,
+};
+关键代码：
+实现流程：
+
+=== Slide 27 ===
+在现代
+WebGIS
+应用中，地图交互与编辑是实现高效地理信息管理和分析的核心功能之一。
+OpenLayers
+可为
+GIS
+开发者提供强大且灵活的地图交互绘制能力。
+图形绘制允许开发者在地图容器中绘制点、线、圆以及多边形等几何图形，这些图形不仅可以通过鼠标交互完成绘制，还可以直接添加预先绘制好的图形。
+OpenLayers 10
+为这些操作提供了完善的交互式控件，使得图形绘制过程更加直观和便捷。
+这些绘制的图形在
+GIS
+应用中具有重要意义，它们被赋予了空间位置信息特性，从而能够满足查询、编辑、分析等多种功能的需求。例如，通过绘制图形可以获取相应的空间范围，为查询操作提供条件限制，或者为地图要素赋予空间属性。地图要素的在线编辑也依赖图形绘制功能，通过它将要素添加到地图上并展示出来，从而实现地图内容的动态更新和管理。
+6.3 
+地图交互与编辑
+
+=== Slide 28 ===
+地图的交互与编辑功能是实现地理信息可视化和操作的关键环节。
+ol
+为用户提供了一套强大且灵活的地图交互与编辑工具。通过这些工具，用户可以在地图上绘制基本几何图形，如点、线、矩形、圆和多边形等，还可以对这些图形进行样式编辑和交互式操作。
+图形绘制的基础是空间坐标，支持通过已知坐标直接添加图形，以及通过鼠标交互获取坐标进行绘制。交互式绘制的核心在于对鼠标事件的监听，例如单击或移动鼠标时触发事件，获取坐标信息并进行处理。
+ol
+封装了交互式图形绘制的相关控件，如
+ol/interaction/Draw
+用于绘制图形，
+ol/interaction/Modify
+用于编辑图形，
+ol/interaction/Select
+用于选择图形。这些控件不仅易于使用，还具备高度的扩展性，能够满足不同场景下的个性化需求。
+在
+Vue
+框架下，开发者可以方便地将
+ol
+的交互功能与
+Vue
+的响应式数据绑定相结合，实现更加灵活的地图应用。例如，通过
+Vue
+的生命周期钩子和事件绑定，可以轻松管理地图的初始化、交互控件的添加与移除，以及图形绘制和编辑的逻辑。这种结合不仅提升了开发效率，也为用户提供了更加流畅的地图交互体验。
+6.3.1 
+图形交互绘制原理
+
+=== Slide 29 ===
+几何图形作为地图信息的重要载体，涵盖了点、折线、圆和多边形等基本类型，它们是实现地图标注、区域划分和路径规划等功能的基础。通过
+ol
+提供的交互式绘制工具，开发者可以借助
+Vue
+框架的响应式特性，实现图形的动态绘制与实时编辑。
+详细讲解如何利用鼠标交互完成几何图形的绘制，并介绍如何通过代码控制图形的样式与属性。本示例实现了在天地图矢量图层的基础上，制点、线、多边形和圆等基本图形。
+6.3.2 
+几何图形的绘制
+
+=== Slide 30 ===
+6.3.2 
+几何图形的绘制实现流程
+1
+2
+3
+新建一个
+drawGraph.vue
+页面，以天地图为底图，创建一个地图实例。
+加载天地图作为底图，并将一个空的矢量图层添加到地图中
+根据传入的图形类型
+(
+点、线、多边形、圆
+)
+创建绘制交互：先移除已有的绘制交互，再创建新的绘制交互并设置绘制样式，将其添加到地图中，同时添加
+Modify
+和
+Snap
+交互实现图形编辑和吸附功能
+4
+实现绘制清除功能，清除所有已绘制的图形
+.
+
+=== Slide 31 ===
+6.3.2 
+图形绘制功能实现关键代码
+// 
+地图实例的响应式引用
+const map = ref(null);
+// 
+天地图的
+XYZ
+瓦片源
+const source = ref(new XYZ({}));
+// 
+矢量数据源，用于存储绘制的图形
+const vectorSource = ref(new VectorSource());
+// 
+矢量图层，用于显示绘制的图形
+const vectorLayer = ref(new VectorLayer({
+    source: vectorSource.value,
+    style: new Style({
+       // 
+设置绘制图形的样式
+       fill: new Fill({ color: 'rgba(255, 255, 255, 0.2)' }), // 
+填充颜色
+      stroke: new Stroke({ color: '#ffcc33', width: 2 }), // 
+边框颜色和宽度
+      image: new RegularShape({ // 
+自定义图形的样式（如点的样式）
+         fill: new Fill({ color: '#ffcc33' }),
+         stroke: new Stroke({ color: '#ffcc33', width: 2 }),
+         points: 3, // 
+三角形
+         radius: 10, // 
+半径
+     rotation: Math.PI / 4 // 
+旋转角度
+      })
+   })
+}));
+// 
+绘制交互实例的响应式引用
+const drawInteraction = ref(null);
+// 
+修改交互实例
+const modifyInteraction = new Modify({ source: vectorSource.value });
+// 
+吸附交互实例
+const snapInteraction = new Snap({ source: vectorSource.value });
+// 
+开始绘制图形的函数
+const startDraw = (type) =&gt; {
+    if (drawInteraction.value) {
+        map.value.removeInteraction(drawInteraction.value); // 
+移除之前的绘制交互
+    }
+    drawInteraction.value = new Draw({
+        source: vectorSource.value, // 
+绘制的图形将被添加到矢量数据源中
+
+=== Slide 32 ===
+type: type, // 
+指定绘制的图形类型，如
+ 'Point', 'LineString', 'Polygon', 'Circle'
+        style: new Style({
+           fill: new Fill({ color: 'rgba(255, 255, 255, 0.2)' }), // 
+设置填充颜色（半透明）
+           stroke: new Stroke({ color: '#ffcc33', width: 2 }), // 
+设置边框颜色和宽度
+           image: new RegularShape({ // 
+自定义点的样式
+              fill: new Fill({ color: '#ffcc33' }), // 
+点的填充颜色
+              stroke: new Stroke({ color: '#ffcc33', width: 2 }), // 
+点的边框颜色和宽度
+              points: 3, // 
+点的形状（三角形）
+              radius: 10, // 
+点的半径
+              rotation: Math.PI / 4 // 
+点的旋转角度
+           })
+        })
+    });
+    map.value.addInteraction(drawInteraction.value); // 
+将绘制交互添加到地图中
+    map.value.addInteraction(modifyInteraction); // 
+添加修改交互，允许编辑绘制的图形
+map.value.addInteraction
+(
+snapInteraction
+); // 
+添加吸附交互，使绘制的图形更精确
+};
+// 
+清除绘制的图形
+const 
+clearDraw
+ = () =&gt; {
+vectorSource.value.clear
+(); // 
+清空矢量数据源中的所有图形
+};
+设置相应的样式，如半透明白色填充、橙色边框和三角形点标记。通过
+startDraw
+函数实现交互式绘图功能，支持绘制点、线、多边形和圆形四种图形类型，每次绘制前会先清除之前的绘制状态。绘图时还加入了修改和吸附交互，提升绘制精度和编辑体验。
+clearDraw
+函数可清空所有绘制的几何图形。整个绘图过程将图形数据实时存储到
+vectorSource
+中，并由
+vectorLayer
+负责渲染显示。
+6.3.2 
+图形绘制功能实现关键代码
+
+=== Slide 33 ===
+6.3.3 
+图形样式交互编辑
+几何图形的样式交互编辑绘制是提升地图交互性和视觉表现的关键技术之一。通过精确控制几何图形（如点、线、多边形等）的样式属性，例如形状、线型、颜色、宽度、透明度和填充颜色等，不仅可以增强地图的美观性，还能帮助用户更直观地理解地图信息。在
+ol
+中，虽然默认样式能够满足基本的绘图需求，但在复杂的业务场景中，通常需要根据具体需求对图形样式进行定制化调整。
+本示例展示了如何在
+Vue
+框架下实现点、线、多边形和圆等基本几何图形的样式设置和修改，以及如何利用
+Vue
+的响应式数据绑定实现样式的动态更新。
+
+=== Slide 34 ===
+6.3.3 
+图形样式交互编辑实现流程
+新建一个
+interactEdit.vue
+页面，以天地图为底图，创建一个地图实例；
+创建一个空的矢量图层添加到地图中，用于存储绘制的几何图形；
+实例化绘制交互对象并设置当前绘制类型（点、线、多边形等），使用默认的样式绘制几何图形，并将样式属性赋值给相应的控件；
+绘制完成后进入编辑模式，添加
+Snap
+吸附使光标自动吸附到已绘制图形的预设位置；
+创建
+Select
+交互实例并设置被选中图形的样式，同时创建
+Modify
+交互实例绑定选中的图形集合；
+通过界面控件调整相关参数更新选中几何图形的样式。此外，还可以清除选中状态和移除全部几何图形数据。
+
+=== Slide 35 ===
+6.3.3 
+图形样式交互编辑功能实现关键代码
+// 
+样式控制变量
+const strokeColor = ref('#ff0000');  // 
+边框颜色，默认红色
+const strokeWidth = ref(2);  // 
+边框宽度，默认
+2px
+const fillColor = ref('#ff0000');  // 
+填充颜色，默认红色
+const fillOpacity = ref(0.2);  // 
+填充透明度，默认
+0.2
+// 4. 
+地图相关对象初始化
+:
+天地图数据源配置
+const source = new XYZ({
+  url: 'http://t{1-7}.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&amp;REQUEST=GetTile&amp;
+     VERSION=1.0.0&amp;LAYER=vec&amp;STYLE=default&amp;TILEMATRIXSET=w&amp;FORMAT
+     =tiles&amp;TILEMATRIX={z}&amp;TILEROW={y}&amp;TILECOL={x}&amp;tk=
+您的天地图密钥
+'
+});
+// 
+矢量数据源，用于存储绘制的图形
+const vectorSource = new VectorSource();
+// 
+矢量图层，用于显示绘制的图形
+const vectorLayer = new VectorLayer({
+};
+//
+创建选中状态的特殊样式
+const createSelectStyle = () =&gt; {
+  return new Style({
+    stroke: new Stroke({
+      color: '#ff00ff',  // 
+紫色边框
+      width: 3  // 
+加粗边框
+    }),
+    fill: new Fill({
+      color: 'rgba(255, 0, 255, 0.3)'  // 
+半透明紫色填充
+    })
+  });
+};
+// 
+响应式变量定义
+const map = ref(null);  // 
+地图实例
+const drawInteraction = ref(null);  // 
+绘制交互实例
+const modifyInteraction = ref(null);  // 
+修改交互实例
+const snapInteraction = ref(null);  // 
+吸附交互实例
+const selectInteraction = ref(null);  // 
+选择交互实例
+
+=== Slide 36 ===
+//
+创建默认图形样式
+const createStyle = () =&gt; {
+  return new Style({
+    fill: new Fill({
+      color: hexToRgba(fillColor.value, fillOpacity.value)
+    }),
+    stroke: new Stroke({
+      color: strokeColor.value,
+      width: strokeWidth.value
+    }),
+    image: new CircleStyle({
+      radius: 5,
+      fill: new Fill({
+        color: strokeColor.value
+      }),
+      stroke: new Stroke({
+        color: strokeColor.value,
+        width: strokeWidth.value
+      })
+    })
+  });
+ source: vectorSource,
+  style: createStyle()  // 
+初始使用默认样式
+});
+//
+更新所有图形的样式
+const updateStyle = () =&gt; {
+  vectorLayer.setStyle(createStyle());  // 
+更新图层样式
+  if (drawInteraction.value) {
+    drawInteraction.value.setStyle(createStyle());  // 
+更新绘制交互的样式
+  }
+};
+//
+移除所有交互
+const removeInteractions = () =&gt; {
+  if (drawInteraction.value) {
+    map.value.removeInteraction(drawInteraction.value);
+    drawInteraction.value = null;
+  }
+  if (modifyInteraction.value) {
+    map.value.removeInteraction(modifyInteraction.value);
+    modifyInteraction.value = null;
+  }
+6.3.3 
+图形样式交互编辑功能实现关键代码
+
+=== Slide 37 ===
+if (selectInteraction.value) {
+    map.value.removeInteraction(selectInteraction.value);
+    selectInteraction.value = null;
+  }
+  if (snapInteraction.value) {
+    map.value.removeInteraction(snapInteraction.value);
+    snapInteraction.value = null;
+  }
+};
+//
+开始绘制指定类型的图形，如
+'Point', 'LineString', 'Polygon', 'Circle'
+const startDraw = (type) =&gt; {
+  removeInteractions();  // 
+先移除所有现有交互
+  // 
+创建新的绘制交互
+  drawInteraction.value = new Draw({
+    source: vectorSource,  // 
+指定目标数据源
+    type: type,  // 
+指定绘制类型
+    style: createStyle()  // 
+使用当前样式
+  });
+  // 
+将交互添加到地图
+  map.value.addInteraction(drawInteraction.value);
+ // 
+添加吸附交互，使绘制时可以吸附到已有图形的顶点
+  snapInteraction.value = new Snap({ source: vectorSource });
+  map.value.addInteraction(snapInteraction.value);
+  // 
+绘制完成后自动进入编辑模式
+  drawInteraction.value.on('drawend', () =&gt; {
+    enableModify();
+  });
+};
+//
+启用图形编辑模式
+const enableModify = () =&gt; {
+  removeInteractions();  // 
+先移除所有现有交互
+  // 
+创建选择交互
+  selectInteraction.value = new Select({
+    layers: [vectorLayer],  // 
+指定可选择的图层
+    style: createSelectStyle()  // 
+使用选中样式
+  });
+  // 
+创建修改交互，绑定到选择的图形
+  modifyInteraction.value = new Modify({
+    features: selectInteraction.value.getFeatures(),  // 
+绑定到选择的图形集合
+6.3.3 
+图形样式交互编辑功能实现关键代码
+
+=== Slide 38 ===
+  stroke: new Stroke({
+        color: '#00ffff',  // 
+青色边框
+        width: 2
+      })
+    })
+  });
+  // 
+将交互添加到地图
+  map.value.addInteraction(selectInteraction.value);
+  map.value.addInteraction(modifyInteraction.value);
+  // 
+添加吸附交互，使编辑时可以吸附到其他图形的顶点
+  snapInteraction.value = new Snap({ source: vectorSource });
+  map.value.addInteraction(snapInteraction.value);
+};
+//
+清除当前选中的图形
+const clearSelection = () =&gt; {
+  if (selectInteraction.value) {
+    selectInteraction.value.getFeatures().clear();
+  }
+};
+//
+清除所有图形
+const clearDraw = () =&gt; {
+  vectorSource.clear();  // 
+清空数据源
+  clearSelection();  // 
+同时清除选择
+};
+// 
+生命周期钩子
+,
+组件挂载后初始化地图
+onMounted(() =&gt; {
+  // 
+创建天地图图层
+  const tiandiMap = new TileLayer({ source });
+  // 
+初始化地图
+  map.value = new Map({
+    target: 'vue-openlayers',  // 
+绑定到
+DOM
+元素
+    layers: [tiandiMap, vectorLayer],  // 
+添加底图和矢量图层
+    view: new View({  // 
+设置初始视图
+      center: [13247019.404399557, 4721671.572580107],  // 
+初始中心点坐标
+      zoom: 3,  // 
+初始缩放级别
+    }),
+  });
+});
+6.3.3 
+图形样式交互编辑功能实现关键代码
+
+=== Slide 39 ===
+6.3.3 
+图形样式交互编辑
+图形样式交互绘制与编辑支持点、线、多边形和圆形四种基本图形，绘制过程中自动启用吸附功能。编辑模式下提供图形选择和顶点修改能力，选中图形会显示高亮效果。样式控制面板实时同步更新所有图形外观，清除功能可选择性地移除选中的几何图形或全部数据。
+功能实现的关键代码说明
+
+=== Slide 40 ===
+谢谢观看
+

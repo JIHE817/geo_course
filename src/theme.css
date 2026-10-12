@@ -1,0 +1,456 @@
+/* ==========================================================================
+   全站视觉主题：地图按钮、卡片、控件美化
+   在 main.js 里于 ol/ol.css 之后 import，用于统一覆盖 OpenLayers 默认外观。
+   ========================================================================== */
+
+:root {
+  --brand: #2563eb;
+  --brand-2: #4f46e5;
+  --ink: #0f172a;
+  --ink-2: #475569;
+  --muted: #64748b;
+  --card: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.1);
+  --shadow-md: 0 8px 22px rgba(15, 23, 42, 0.16);
+  --shadow-lg: 0 14px 34px rgba(15, 23, 42, 0.24);
+  --radius: 12px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* 缩放滑块尺寸变量：改这里即可整体缩放，按钮与轨道自动贴合 */
+  --zoomslider-w: 86px;   /* 容器外宽 */
+  --zoomslider-pad: 10px; /* 容器内边距 */
+  --zoomslider-btn: calc(var(--zoomslider-w) - var(--zoomslider-pad) * 2);
+}
+
+body {
+  font-family: system-ui, 'Segoe UI', 'Microsoft YaHei', Roboto, sans-serif;
+  color: var(--ink);
+}
+
+/* 浮层卡片：左上角自定义工具栏、右上角图层面板等 */
+.ol-card {
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------- 主按钮 */
+.ol-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 62px;
+  padding: 0 32px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #5b7d99 0%, #456280 100%);
+  box-shadow: 0 4px 14px rgba(69, 98, 128, 0.4);
+  color: #fff;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 0.16s var(--ease),
+    box-shadow 0.16s var(--ease),
+    filter 0.16s var(--ease);
+}
+
+.ol-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(69, 98, 128, 0.5);
+  filter: brightness(1.06);
+}
+
+.ol-btn:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 2px 8px rgba(69, 98, 128, 0.42);
+}
+
+.ol-btn:focus-visible {
+  outline: 3px solid rgba(100, 116, 139, 0.45);
+  outline-offset: 3px;
+}
+
+/* 按钮配色主题 */
+.ol-btn--green {
+  background: linear-gradient(180deg, #6f8f8c 0%, #567270 100%);
+  box-shadow: 0 4px 14px rgba(86, 114, 112, 0.4);
+}
+.ol-btn--green:hover {
+  box-shadow: 0 10px 24px rgba(86, 114, 112, 0.5);
+}
+
+.ol-btn--amber {
+  background: linear-gradient(180deg, #93846f 0%, #756752 100%);
+  box-shadow: 0 4px 14px rgba(117, 103, 82, 0.4);
+  color: #fff;
+}
+.ol-btn--amber:hover {
+  box-shadow: 0 10px 24px rgba(117, 103, 82, 0.5);
+}
+
+.ol-btn--slate {
+  background: linear-gradient(180deg, #64748b 0%, #475569 100%);
+  box-shadow: 0 4px 14px rgba(71, 85, 105, 0.38);
+}
+.ol-btn--slate:hover {
+  box-shadow: 0 10px 24px rgba(71, 85, 105, 0.48);
+}
+
+/* 次要按钮（白底） */
+.ol-btn--ghost {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.14);
+  color: var(--ink);
+}
+.ol-btn--ghost:hover {
+  background: #f8fafc;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.2);
+}
+
+/* 选中态 */
+.ol-btn.is-active {
+  filter: saturate(1.15);
+  outline: 3px solid rgba(255, 255, 255, 0.85);
+  outline-offset: -6px;
+}
+
+.ol-btn__icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+/* 浮动工具栏容器 */
+.ol-toolbar {
+  display: flex;
+  flex-wrap: nowrap; /* 按钮保持一行，不要折行 */
+  gap: 12px;
+  padding: 12px;
+  pointer-events: auto;
+}
+
+/* --------------------------------------------- 自定义图层列表面板（卡片式） */
+.ol-layer-panel {
+  padding: 16px 18px 14px;
+  font-size: 16px;
+  color: var(--ink);
+  min-width: 210px;
+}
+
+.ol-layer-panel__title {
+  margin: 0 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--card-border);
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.ol-layer-panel label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  margin: 0;
+  padding: 0 4px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background 0.15s var(--ease);
+}
+
+.ol-layer-panel label:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.ol-layer-panel input[type='checkbox'] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+
+/* ------------------------- 美化 OpenLayers 自带控件（缩放滑块 / 导航 / 归位） */
+.ol-control {
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.ol-control button {
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-2);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 0.15s var(--ease),
+    color 0.15s var(--ease),
+    transform 0.15s var(--ease);
+}
+
+.ol-control button:hover,
+.ol-control button:focus {
+  outline: none;
+  background: rgba(91, 125, 153, 0.16);
+  color: #456280;
+}
+
+.ol-control button:focus-visible {
+  outline: 2px solid #456280;
+  outline-offset: 1px;
+}
+
+/* ---- 缩放滑块：取代 +/- 按钮，竖向拖动缩放 ----
+   关键：让内部轨道 .ol-zoomslider-slider 填满容器内容区，
+   并让按钮 left: 0，按钮宽高等于轨道宽度，从而水平方向完美居中。 */
+.ol-zoomslider {
+  top: 14px;
+  left: 14px;
+  width: var(--zoomslider-w);
+  height: 360px;
+  padding: var(--zoomslider-pad);
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: calc(var(--zoomslider-w) / 2);
+  box-shadow: var(--shadow-md);
+  box-sizing: border-box;
+}
+
+/* 轨道填满内容区，去掉默认的 left 与 width 干扰 */
+.ol-zoomslider .ol-zoomslider-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+/* 按钮：宽度等于轨道内容宽度，left 归零即水平居中 */
+.ol-zoomslider button {
+  left: 0;
+  width: var(--zoomslider-btn);
+  height: var(--zoomslider-btn);
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #5b7d99 0%, #456280 100%);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(69, 98, 128, 0.45);
+  transition:
+    transform 0.16s var(--ease),
+    filter 0.16s var(--ease),
+    box-shadow 0.16s var(--ease);
+}
+
+.ol-zoomslider button:hover {
+  background: linear-gradient(180deg, #6d8fa8 0%, #5b7d99 100%);
+  transform: scale(1.06);
+  box-shadow: 0 6px 16px rgba(69, 98, 128, 0.55);
+}
+
+.ol-zoomslider button:active {
+  transform: scale(0.96);
+}
+
+/* ---- 导航（复位北向）：放在缩放滑块正下方，左侧自成一列 ---- */
+.ol-rotate {
+  top: 386px;
+  left: 14px;
+  right: auto;
+  padding: 5px;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+}
+.ol-rotate button {
+  width: 50px;
+  height: 50px;
+  font-size: 28px;
+}
+
+/* ---- “缩放到指定范围”按钮 ----
+   注意：ol.css 里的 .ol-touch .ol-zoom-extent { top: 5.5em } 优先级更高，
+   必须用 .ol-touch 前缀盖掉，否则触屏环境（含无头 Chrome）位置会跑掉。 */
+.ol-zoom-extent,
+.ol-touch .ol-zoom-extent {
+  top: 450px;
+  left: 14px;
+  padding: 5px;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+}
+
+.ol-zoom-extent button {
+  width: 50px;
+  height: 50px;
+  font-size: 26px;
+}
+
+/* ---- 全屏按钮：右上角 ---- */
+.ol-full-screen {
+  top: 14px;
+  right: 16px;
+  left: auto;
+  padding: 5px;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+}
+
+.ol-full-screen button {
+  width: 50px;
+  height: 50px;
+  font-size: 26px;
+  background: transparent;
+}
+
+/* ---- 比例尺：加大加粗，更容易读数 ---- */
+.ol-scale-line {
+  bottom: 78px;
+  left: 16px;
+  padding: 9px 16px 11px;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: 13px;
+  box-shadow: var(--shadow-md);
+}
+
+.ol-scale-line-inner {
+  border: 2px solid var(--ink);
+  border-top: none;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  margin: 2px;
+}
+
+/* 鼠标坐标读数 */
+.ol-mouse-position,
+#mousePosition {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  top: auto;
+  right: auto;
+  z-index: 15;
+  min-width: 190px;
+  padding: 12px 18px;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.6px;
+  text-align: center;
+}
+
+.ol-attribution {
+  bottom: 14px;
+  right: 14px;
+}
+
+.ol-attribution button {
+  width: 34px;
+  height: 34px;
+  font-size: 17px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+}
+
+.ol-attribution ul {
+  color: var(--ink);
+  font-size: 13px;
+  text-shadow: none;
+}
+
+.ol-attribution:not(.ol-collapsed) {
+  padding: 5px 10px;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+/* ------------------------------------------------------- 鹰眼控件（右下） */
+.ol-overviewmap {
+  left: auto;
+  right: 16px;
+  bottom: 16px;
+  background: transparent;
+}
+
+.ol-overviewmap:not(.ol-collapsed) {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.ol-overviewmap .ol-overviewmap-map {
+  width: 236px;
+  height: 176px;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.ol-overviewmap:not(.ol-collapsed) button {
+  right: 0;
+  bottom: 0;
+  left: auto;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ------------------------------------------- 测量提示框（跟随鼠标的小气泡） */
+.ol-measure-tip {
+  position: absolute;
+  padding: 9px 15px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow-md);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* 窄屏：右上角要让位给图层列表，全屏按钮移到右侧中间 */
+@media (max-width: 1280px) {
+  .ol-full-screen {
+    top: auto;
+    right: 16px;
+    bottom: 210px;
+  }
+}
