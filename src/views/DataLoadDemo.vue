@@ -570,6 +570,8 @@ onBeforeUnmount(() => {
   top: 76px;
   right: 16px;
   z-index: 20;
+  max-height: calc(100% - 306px);
+  overflow-y: auto;
 }
 .ol-layer-panel__group {
   margin: 14px 0 6px;
@@ -586,13 +588,15 @@ onBeforeUnmount(() => {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
 }
 
-/* 左侧功能工具面板（最左端隔离区域，集中放置测量 / 绘制按键） */
+/* 左侧功能工具面板（让开缩放滑块列，限高到比例尺上方，超高内部滚动） */
 .tool-panel {
   position: absolute;
-  left: 14px;
-  top: 470px;
+  left: 116px;
+  top: 76px;
   z-index: 20;
   width: 216px;
+  max-height: calc(100% - 236px);
+  overflow-y: auto;
   padding: 14px;
   display: flex;
   flex-direction: column;

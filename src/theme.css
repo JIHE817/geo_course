@@ -38,6 +38,11 @@ body {
   pointer-events: auto;
 }
 
+/* 卡片内的子项不参与 flex 压缩：面板限高后应改为滚动，而不是把按钮压扁变形 */
+.ol-card > * {
+  flex: none;
+}
+
 /* --------------------------------------------------------------- 主按钮 */
 .ol-btn {
   display: inline-flex;
@@ -217,7 +222,9 @@ body {
   top: 14px;
   left: 14px;
   width: var(--zoomslider-w);
-  height: 360px;
+  /* 高度随窗口自适应：正常窗口保持 360px，窗口过矮时收缩，
+     始终与底部比例尺保持安全间距，互不遮挡 */
+  height: clamp(150px, calc(100% - 300px), 360px);
   padding: var(--zoomslider-pad);
   background: var(--card);
   backdrop-filter: blur(10px);
@@ -341,9 +348,8 @@ body {
   margin: 2px;
 }
 
-/* 鼠标坐标读数 */
-.ol-mouse-position,
-#mousePosition {
+/* 鼠标坐标读数（只作用于控件自身，避免与目标容器 #mousePosition 重复定位导致偏移叠加） */
+.ol-mouse-position {
   position: absolute;
   left: 16px;
   bottom: 16px;
@@ -366,9 +372,12 @@ body {
   text-align: center;
 }
 
+/* 版权信息：右下角已被鹰眼图占用，改到底部居中，避免互相遮挡 */
 .ol-attribution {
   bottom: 14px;
-  right: 14px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
 }
 
 .ol-attribution button {
@@ -446,11 +455,18 @@ body {
   pointer-events: none;
 }
 
-/* 窄屏：右上角要让位给图层列表，全屏按钮移到右侧中间 */
-@media (max-width: 1280px) {
-  .ol-full-screen {
+/* 窗口过矮时：左侧“复位北向 / 缩放到范围”改为贴近底部、比例尺上方排列，
+   避免它们固定的 top 位置在矮窗口里压到比例尺。
+   全屏按钮始终留在右上角，与右上角面板（top:76）上下错开，不会互相遮挡。 */
+@media (max-height: 760px) {
+  .ol-rotate {
     top: auto;
-    right: 16px;
-    bottom: 210px;
+    bottom: 206px;
+  }
+
+  .ol-zoom-extent,
+  .ol-touch .ol-zoom-extent {
+    top: auto;
+    bottom: 136px;
   }
 }

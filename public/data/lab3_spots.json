@@ -1,0 +1,1325 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.61,
+          31.002
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "code": "CD001",
+        "name": "青城山-都江堰景区",
+        "category": "5A",
+        "district": "都江堰市",
+        "address": "都江堰市公园路",
+        "ticket": 80,
+        "open_hours": "08:00-17:30",
+        "description": "世界文化遗产、国家5A级景区，由都江堰水利工程与青城山组成，被誉为“拜水都江堰，问道青城山”。",
+        "image_url": "/images/attractions/CD001.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.6168,
+          30.5108
+        ]
+      },
+      "properties": {
+        "id": 2,
+        "code": "CD002",
+        "name": "安仁古镇景区",
+        "category": "5A",
+        "district": "大邑县",
+        "address": "大邑县安仁镇金桂街",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家5A级景区，保存完好的民国公馆建筑群，拥有建川博物馆聚落，被称为“中国博物馆小镇”。",
+        "image_url": "/images/attractions/CD002.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.1706,
+          30.3058
+        ]
+      },
+      "properties": {
+        "id": 3,
+        "code": "CD003",
+        "name": "天台山景区",
+        "category": "5A",
+        "district": "邛崃市",
+        "address": "邛崃市天台山镇",
+        "ticket": 58,
+        "open_hours": "08:00-18:00",
+        "description": "国家5A级景区，森林覆盖率高，以山奇、石怪、水美、林幽著称，是夏季避暑和观萤火虫的胜地。",
+        "image_url": "/images/attractions/CD003.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.1404,
+          30.5919
+        ]
+      },
+      "properties": {
+        "id": 4,
+        "code": "CD004",
+        "name": "三圣花乡景区",
+        "category": "4A",
+        "district": "锦江区",
+        "address": "锦江区三圣街道红砂村",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，由花乡农居、幸福梅林、江家菜地等组成，是成都近郊著名的花卉与乡村旅游区。",
+        "image_url": "/images/attractions/CD004.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.0472,
+          30.6488
+        ]
+      },
+      "properties": {
+        "id": 5,
+        "code": "CD005",
+        "name": "武侯祠博物馆",
+        "category": "4A",
+        "district": "武侯区",
+        "address": "武侯区武侯祠大街231号",
+        "ticket": 50,
+        "open_hours": "08:00-18:00",
+        "description": "中国唯一君臣合祀祠庙，纪念刘备、诸葛亮等蜀汉英雄，与锦里古街相邻，是三国文化圣地。",
+        "image_url": "/images/attractions/CD005.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.026,
+          30.661
+        ]
+      },
+      "properties": {
+        "id": 6,
+        "code": "CD006",
+        "name": "杜甫草堂博物馆",
+        "category": "4A",
+        "district": "青羊区",
+        "address": "青羊区青华路37号",
+        "ticket": 50,
+        "open_hours": "09:00-18:00",
+        "description": "唐代诗人杜甫流寓成都时的故居，是中国规模最大、保存最完好的杜甫纪念地，被誉为“中国文学圣地”。",
+        "image_url": "/images/attractions/CD006.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.145,
+          30.7355
+        ]
+      },
+      "properties": {
+        "id": 7,
+        "code": "CD007",
+        "name": "成都大熊猫繁育研究基地",
+        "category": "4A",
+        "district": "成华区",
+        "address": "成华区熊猫大道1375号",
+        "ticket": 55,
+        "open_hours": "07:30-18:00",
+        "description": "国家4A级景区，全球知名的大熊猫迁地保护与科研基地，可近距离观赏大熊猫、小熊猫等珍稀动物。",
+        "image_url": "/images/attractions/CD007.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.32,
+          30.642
+        ]
+      },
+      "properties": {
+        "id": 8,
+        "code": "CD008",
+        "name": "洛带古镇景区",
+        "category": "4A",
+        "district": "龙泉驿区",
+        "address": "龙泉驿区洛带镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，中国西部最大的客家聚居地，以客家土楼、广东会馆和客家美食闻名。",
+        "image_url": "/images/attractions/CD008.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.1576,
+          30.8339
+        ]
+      },
+      "properties": {
+        "id": 9,
+        "code": "CD009",
+        "name": "宝光桂湖文化旅游区",
+        "category": "4A",
+        "district": "新都区",
+        "address": "新都区宝光街81号",
+        "ticket": 20,
+        "open_hours": "08:00-17:30",
+        "description": "国家4A级景区，由千年古刹宝光寺与明代状元杨升庵故居桂湖组成，文物与园林相得益彰。",
+        "image_url": "/images/attractions/CD009.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.9656,
+          30.3236
+        ]
+      },
+      "properties": {
+        "id": 10,
+        "code": "CD010",
+        "name": "黄龙溪古镇景区",
+        "category": "4A",
+        "district": "双流区",
+        "address": "双流区黄龙溪镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，拥有1700余年历史的水乡古镇，青石板街与溪流穿镇而过，是成都近郊热门古镇。",
+        "image_url": "/images/attractions/CD010.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.824,
+          30.7215
+        ]
+      },
+      "properties": {
+        "id": 11,
+        "code": "CD011",
+        "name": "国色天乡一期",
+        "category": "4A",
+        "district": "温江区",
+        "address": "温江区万春镇天乡路",
+        "ticket": 150,
+        "open_hours": "09:30-18:00",
+        "description": "国家4A级景区，大型主题乐园，由童话世界、水上乐园等园区组成，适合亲子游乐。",
+        "image_url": "/images/attractions/CD011.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.334,
+          30.348
+        ]
+      },
+      "properties": {
+        "id": 12,
+        "code": "CD012",
+        "name": "平乐古镇景区",
+        "category": "4A",
+        "district": "邛崃市",
+        "address": "邛崃市平乐镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，南方丝绸之路上的千年古镇，白沫江穿镇而过，以古桥、古树、古街著称。",
+        "image_url": "/images/attractions/CD012.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.0115,
+          30.684
+        ]
+      },
+      "properties": {
+        "id": 13,
+        "code": "CD013",
+        "name": "金沙遗址博物馆",
+        "category": "4A",
+        "district": "青羊区",
+        "address": "青羊区金沙遗址路2号",
+        "ticket": 70,
+        "open_hours": "09:00-18:00",
+        "description": "国家4A级景区，古蜀文明重要遗址，出土太阳神鸟金饰等珍贵文物，是了解成都城市史的窗口。",
+        "image_url": "/images/attractions/CD013.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.0305,
+          30.723
+        ]
+      },
+      "properties": {
+        "id": 14,
+        "code": "CD014",
+        "name": "成都欢乐谷",
+        "category": "4A",
+        "district": "金牛区",
+        "address": "金牛区西华大道16号",
+        "ticket": 230,
+        "open_hours": "09:30-21:00",
+        "description": "国家4A级景区，大型现代主题乐园，拥有多种大型游乐设备与演艺项目，是成都夜游热门目的地。",
+        "image_url": "/images/attractions/CD014.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.557,
+          30.814
+        ]
+      },
+      "properties": {
+        "id": 15,
+        "code": "CD015",
+        "name": "街子古镇景区",
+        "category": "4A",
+        "district": "崇州市",
+        "address": "崇州市街子镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，毗邻青城山，以明清建筑、味江河与千年银杏闻名，有“川西水乡”之称。",
+        "image_url": "/images/attractions/CD015.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.192,
+          30.7
+        ]
+      },
+      "properties": {
+        "id": 16,
+        "code": "CD016",
+        "name": "西岭雪山景区",
+        "category": "4A",
+        "district": "大邑县",
+        "address": "大邑县西岭镇",
+        "ticket": 30,
+        "open_hours": "08:00-17:00",
+        "description": "国家4A级景区，成都第一高峰大雪塘所在地，因杜甫“窗含西岭千秋雪”诗句得名，是滑雪与观景胜地。",
+        "image_url": "/images/attractions/CD016.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.2554,
+          30.5613
+        ]
+      },
+      "properties": {
+        "id": 17,
+        "code": "CD017",
+        "name": "花水湾温泉度假区",
+        "category": "4A",
+        "district": "大邑县",
+        "address": "大邑县花水湾镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以古海水温泉闻名，群山环抱、溪流潺潺，是成都周边知名温泉度假地。",
+        "image_url": "/images/attractions/CD017.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.795,
+          30.3915
+        ]
+      },
+      "properties": {
+        "id": 18,
+        "code": "CD018",
+        "name": "花舞人间",
+        "category": "4A",
+        "district": "新津区",
+        "address": "新津区永商镇梨花大道",
+        "ticket": 60,
+        "open_hours": "08:30-18:00",
+        "description": "国家4A级景区，大型花卉主题公园，四季花海与山水景观结合，是赏花休闲的热门去处。",
+        "image_url": "/images/attractions/CD018.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.0705,
+          30.4975
+        ]
+      },
+      "properties": {
+        "id": 19,
+        "code": "CD019",
+        "name": "成都海昌极地海洋世界",
+        "category": "4A",
+        "district": "天府新区",
+        "address": "天府新区天府大道南段2039号",
+        "ticket": 190,
+        "open_hours": "09:00-17:30",
+        "description": "国家4A级景区，西南地区大型海洋主题公园，展示极地动物与海洋生物，拥有海豚表演等项目。",
+        "image_url": "/images/attractions/CD019.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.665,
+          31.1186
+        ]
+      },
+      "properties": {
+        "id": 20,
+        "code": "CD020",
+        "name": "虹口风景区",
+        "category": "4A",
+        "district": "都江堰市",
+        "address": "都江堰市虹口乡",
+        "ticket": 0,
+        "open_hours": "08:00-18:00",
+        "description": "国家4A级景区，以峡谷漂流和高山峡谷风光著称，森林茂密、溪流清澈，是夏季避暑漂流胜地。",
+        "image_url": "/images/attractions/CD020.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.3217,
+          30.5538
+        ]
+      },
+      "properties": {
+        "id": 21,
+        "code": "CD021",
+        "name": "桃花故里旅游景区",
+        "category": "4A",
+        "district": "龙泉驿区",
+        "address": "龙泉驿区山泉镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，成都国际桃花节主会场，春季漫山桃花盛开，是闻名全国的赏花目的地。",
+        "image_url": "/images/attractions/CD021.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.7949,
+          30.8205
+        ]
+      },
+      "properties": {
+        "id": 22,
+        "code": "CD022",
+        "name": "农科村景区",
+        "category": "4A",
+        "district": "郫都区",
+        "address": "郫都区友爱镇农科村",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，中国农家乐发源地，以盆景花木和乡村休闲旅游闻名，被誉为“鲜花盛开的村庄”。",
+        "image_url": "/images/attractions/CD022.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.4238,
+          30.5338
+        ]
+      },
+      "properties": {
+        "id": 23,
+        "code": "CD023",
+        "name": "成都新场古镇景区",
+        "category": "4A",
+        "district": "大邑县",
+        "address": "大邑县新场镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，保存完好的川西坝子古镇，古街、古巷、古桥众多，被称为“最后的川西坝子”。",
+        "image_url": "/images/attractions/CD023.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.9207,
+          30.6767
+        ]
+      },
+      "properties": {
+        "id": 24,
+        "code": "CD024",
+        "name": "非遗博览园",
+        "category": "4A",
+        "district": "青羊区",
+        "address": "青羊区光华大道二段601号",
+        "ticket": 0,
+        "open_hours": "09:00-18:00",
+        "description": "国家4A级景区，国际非物质文化遗产节永久举办地，集中展示世界各地非遗项目与手工艺。",
+        "image_url": "/images/attractions/CD024.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.126,
+          30.671
+        ]
+      },
+      "properties": {
+        "id": 25,
+        "code": "CD025",
+        "name": "东郊记忆",
+        "category": "4A",
+        "district": "成华区",
+        "address": "成华区建设南支路4号",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，由老工业厂房改造的文创园区，集音乐、戏剧、展览与潮流商业于一体，是成都文化地标。",
+        "image_url": "/images/attractions/CD025.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.876,
+          30.8098
+        ]
+      },
+      "properties": {
+        "id": 26,
+        "code": "CD026",
+        "name": "望丛祠",
+        "category": "4A",
+        "district": "郫都区",
+        "address": "郫都区望丛中路",
+        "ticket": 0,
+        "open_hours": "08:30-17:30",
+        "description": "国家4A级景区，纪念古蜀国望帝杜宇、丛帝开明的祠庙，是蜀人寻根祭祖的重要场所。",
+        "image_url": "/images/attractions/CD026.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.9159,
+          30.8679
+        ]
+      },
+      "properties": {
+        "id": 27,
+        "code": "CD027",
+        "name": "三道堰景区",
+        "category": "4A",
+        "district": "郫都区",
+        "address": "郫都区永宁路南一段",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，因柏条河、徐堰河穿镇而过得名，水乡风貌优美，是成都近郊亲水休闲地。",
+        "image_url": "/images/attractions/CD027.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.4777,
+          30.6077
+        ]
+      },
+      "properties": {
+        "id": 28,
+        "code": "CD028",
+        "name": "五凤溪旅游景区",
+        "category": "4A",
+        "district": "金堂县",
+        "address": "金堂县五凤镇五凤溪社区",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，依山傍水的山地古镇，五条古街沿山脊延伸，是沱江流域重要的水运码头古镇。",
+        "image_url": "/images/attractions/CD028.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.7809,
+          31.2325
+        ]
+      },
+      "properties": {
+        "id": 29,
+        "code": "CD029",
+        "name": "宝山旅游区",
+        "category": "4A",
+        "district": "彭州市",
+        "address": "彭州市龙门山镇宝山村",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，龙门山中的生态旅游村，以温泉、峡谷与山地度假闻名，是全国乡村旅游重点村。",
+        "image_url": "/images/attractions/CD029.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.911,
+          31.194
+        ]
+      },
+      "properties": {
+        "id": 30,
+        "code": "CD030",
+        "name": "白鹿音乐小镇",
+        "category": "4A",
+        "district": "彭州市",
+        "address": "彭州市白鹿镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以法式风情建筑和音乐文化活动闻名，法式教堂与欧式街区是热门打卡地。",
+        "image_url": "/images/attractions/CD030.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.4212,
+          30.188
+        ]
+      },
+      "properties": {
+        "id": 31,
+        "code": "CD031",
+        "name": "石象湖景区",
+        "category": "4A",
+        "district": "蒲江县",
+        "address": "蒲江县朝阳湖镇",
+        "ticket": 70,
+        "open_hours": "08:30-17:30",
+        "description": "国家4A级景区，以湖泊、森林与郁金香花海著称，生态环境优良，是成都西南的赏花度假地。",
+        "image_url": "/images/attractions/CD031.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.622,
+          30.7331
+        ]
+      },
+      "properties": {
+        "id": 32,
+        "code": "CD032",
+        "name": "元通古镇景区",
+        "category": "4A",
+        "district": "崇州市",
+        "address": "崇州市元通镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，文井江畔的千年水乡古镇，古码头、吊脚楼与老街保存完好。",
+        "image_url": "/images/attractions/CD032.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.9083,
+          30.6058
+        ]
+      },
+      "properties": {
+        "id": 33,
+        "code": "CD033",
+        "name": "成都海滨城景区",
+        "category": "4A",
+        "district": "双流区",
+        "address": "双流区蛟龙港海滨城",
+        "ticket": 0,
+        "open_hours": "10:00-22:00",
+        "description": "国家4A级景区，大型商业综合体景区，拥有室内海洋馆与丰富娱乐业态，是城南休闲消费地标。",
+        "image_url": "/images/attractions/CD033.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.1279,
+          30.7822
+        ]
+      },
+      "properties": {
+        "id": 34,
+        "code": "CD034",
+        "name": "锦门景区",
+        "category": "4A",
+        "district": "新都区",
+        "address": "新都区三河街道",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以丝绸文化为主题的民国风情街区，是南丝绸之路起点的文化旅游地标。",
+        "image_url": "/images/attractions/CD034.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.621,
+          30.9985
+        ]
+      },
+      "properties": {
+        "id": 35,
+        "code": "CD035",
+        "name": "灌县古城景区",
+        "category": "4A",
+        "district": "都江堰市",
+        "address": "都江堰市灌口街道",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，都江堰老城区改造而成的古城景区，紧邻都江堰水利工程，古街与城隍庙相映成趣。",
+        "image_url": "/images/attractions/CD035.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.985,
+          30.5885
+        ]
+      },
+      "properties": {
+        "id": 36,
+        "code": "CD036",
+        "name": "浓园艺术博览园",
+        "category": "4A",
+        "district": "武侯区",
+        "address": "武侯区武侯大道三河段",
+        "ticket": 0,
+        "open_hours": "09:00-18:00",
+        "description": "国家4A级景区，以艺术创作、展览与交流为核心的文化艺术园区，收藏展示大量书画与雕塑作品。",
+        "image_url": "/images/attractions/CD036.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.4699,
+          30.3724
+        ]
+      },
+      "properties": {
+        "id": 37,
+        "code": "CD037",
+        "name": "中国酒村·邛酒文化风情旅游村落",
+        "category": "4A",
+        "district": "邛崃市",
+        "address": "邛崃市卧龙镇",
+        "ticket": 0,
+        "open_hours": "08:30-18:00",
+        "description": "国家4A级景区，以邛酒文化为主题，集酿酒体验、民俗展示与田园休闲于一体。",
+        "image_url": "/images/attractions/CD037.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.3767,
+          30.1868
+        ]
+      },
+      "properties": {
+        "id": 38,
+        "code": "CD038",
+        "name": "成佳茶乡景区",
+        "category": "4A",
+        "district": "蒲江县",
+        "address": "蒲江县成佳镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以万亩茶园和茶文化体验闻名，可采茶制茶、品尝雀舌名茶。",
+        "image_url": "/images/attractions/CD038.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.7939,
+          30.7657
+        ]
+      },
+      "properties": {
+        "id": 39,
+        "code": "CD039",
+        "name": "幸福田园",
+        "category": "4A",
+        "district": "温江区",
+        "address": "温江区万春镇幸福村",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，川西林盘院落与田园景观结合的乡村旅游景区，展现天府农耕文化。",
+        "image_url": "/images/attractions/CD039.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.96,
+          30.841
+        ]
+      },
+      "properties": {
+        "id": 40,
+        "code": "CD040",
+        "name": "三道堰青杠树景区",
+        "category": "4A",
+        "district": "郫都区",
+        "address": "郫都区三道堰镇青杠树村",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以川西民居和林盘水系为特色的田园综合体，是成都乡村振兴示范村。",
+        "image_url": "/images/attractions/CD040.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8103,
+          30.4925
+        ]
+      },
+      "properties": {
+        "id": 41,
+        "code": "CD041",
+        "name": "斑竹林",
+        "category": "4A",
+        "district": "新津区",
+        "address": "新津区兴义镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以成片竹林与田园湿地景观著称，生态环境清幽，是近郊休闲踏青地。",
+        "image_url": "/images/attractions/CD041.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8432,
+          31.09
+        ]
+      },
+      "properties": {
+        "id": 42,
+        "code": "CD042",
+        "name": "丹景山景区",
+        "category": "4A",
+        "district": "彭州市",
+        "address": "彭州市丹景山镇",
+        "ticket": 30,
+        "open_hours": "08:00-18:00",
+        "description": "国家4A级景区，以牡丹花闻名，有“丹景山牡丹甲天下”之称，春季花会吸引大量游客。",
+        "image_url": "/images/attractions/CD042.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.4278,
+          30.7153
+        ]
+      },
+      "properties": {
+        "id": 43,
+        "code": "CD043",
+        "name": "天府花溪谷",
+        "category": "4A",
+        "district": "大邑县",
+        "address": "大邑县悦来镇",
+        "ticket": 60,
+        "open_hours": "08:30-17:30",
+        "description": "国家4A级景区，山谷型花卉主题景区，四季花海与溪谷景观相融，兼具亲子游乐项目。",
+        "image_url": "/images/attractions/CD043.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.2955,
+          30.6348
+        ]
+      },
+      "properties": {
+        "id": 44,
+        "code": "CD044",
+        "name": "蔚然花海",
+        "category": "4A",
+        "district": "龙泉驿区",
+        "address": "龙泉驿区同安街道",
+        "ticket": 50,
+        "open_hours": "09:00-18:00",
+        "description": "国家4A级景区，大型花卉观赏景区，以成片花海、灯光秀和露营活动吸引游客。",
+        "image_url": "/images/attractions/CD044.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.0655,
+          30.458
+        ]
+      },
+      "properties": {
+        "id": 45,
+        "code": "CD045",
+        "name": "麓湖水城",
+        "category": "4A",
+        "district": "天府新区",
+        "address": "天府新区天府大道南一段",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以人工湖群与生态社区构成的开放式水城，是成都城南生态休闲新地标。",
+        "image_url": "/images/attractions/CD045.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.7922,
+          30.9416
+        ]
+      },
+      "properties": {
+        "id": 46,
+        "code": "CD046",
+        "name": "战旗村景区",
+        "category": "4A",
+        "district": "郫都区",
+        "address": "郫都区唐昌镇战旗村",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，全国乡村振兴示范村，以川西民居、乡村十八坊和农耕文化体验闻名。",
+        "image_url": "/images/attractions/CD046.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.983,
+          30.5945
+        ]
+      },
+      "properties": {
+        "id": 47,
+        "code": "CD047",
+        "name": "天府芙蓉园",
+        "category": "4A",
+        "district": "武侯区",
+        "address": "武侯区武侯新城",
+        "ticket": 0,
+        "open_hours": "09:00-18:00",
+        "description": "国家4A级景区，以芙蓉花为主题的生态公园，展现成都“蓉城”文化，是城市休闲绿地。",
+        "image_url": "/images/attractions/CD047.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.6286,
+          30.6085
+        ]
+      },
+      "properties": {
+        "id": 48,
+        "code": "CD048",
+        "name": "天府国际慢城",
+        "category": "4A",
+        "district": "崇州市",
+        "address": "崇州市白头镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以慢生活理念打造的田园度假区，拥有稻田景观、林盘院落与乡村民宿。",
+        "image_url": "/images/attractions/CD048.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.5891,
+          30.6529
+        ]
+      },
+      "properties": {
+        "id": 49,
+        "code": "CD049",
+        "name": "竹艺村",
+        "category": "4A",
+        "district": "崇州市",
+        "address": "崇州市道明镇",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以国家级非遗道明竹编闻名，竹艺建筑“竹里”是网红打卡地。",
+        "image_url": "/images/attractions/CD049.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.28,
+          30.899
+        ]
+      },
+      "properties": {
+        "id": 50,
+        "code": "CD050",
+        "name": "青白江凤凰湖旅游景区",
+        "category": "4A",
+        "district": "青白江区",
+        "address": "青白江区凤凰湖大道",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，以樱花观赏和湖滨湿地景观著称，是成都北部重要的城市生态公园。",
+        "image_url": "/images/attractions/CD050.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.805,
+          30.39
+        ]
+      },
+      "properties": {
+        "id": 51,
+        "code": "CD051",
+        "name": "白鹤滩国家湿地公园",
+        "category": "4A",
+        "district": "新津区",
+        "address": "新津区白鹤滩",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家4A级景区，岷江畔的国家湿地公园，湿地生态与观鸟资源丰富，是自然科普与休闲胜地。",
+        "image_url": "/images/attractions/CD051.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.253,
+          30.3534
+        ]
+      },
+      "properties": {
+        "id": 52,
+        "code": "CD052",
+        "name": "丹景台旅游景区",
+        "category": "4A",
+        "district": "东部新区",
+        "address": "东部新区龙泉山城市森林公园",
+        "ticket": 0,
+        "open_hours": "09:00-17:00",
+        "description": "国家4A级景区，龙泉山城市森林公园核心观景点，可俯瞰三岔湖与成都东部城市景观。",
+        "image_url": "/images/attractions/CD052.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.9279,
+          30.898
+        ]
+      },
+      "properties": {
+        "id": 53,
+        "code": "CD053",
+        "name": "成都川菜博物馆",
+        "category": "3A",
+        "district": "郫都区",
+        "address": "郫都区古城镇",
+        "ticket": 60,
+        "open_hours": "09:00-18:00",
+        "description": "国家3A级景区，以川菜文化为主题的博物馆，可体验豆瓣制作、川菜烹饪与美食品鉴。",
+        "image_url": "/images/attractions/CD053.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.6723,
+          30.6299
+        ]
+      },
+      "properties": {
+        "id": 54,
+        "code": "CD054",
+        "name": "罨画池博物馆",
+        "category": "3A",
+        "district": "崇州市",
+        "address": "崇州市大东街",
+        "ticket": 8,
+        "open_hours": "09:00-17:30",
+        "description": "国家3A级景区，四川保存最完好的古代园林之一，陆游祠与文庙同处一园，人文底蕴深厚。",
+        "image_url": "/images/attractions/CD054.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.3982,
+          30.4458
+        ]
+      },
+      "properties": {
+        "id": 55,
+        "code": "CD055",
+        "name": "邛崃市竹溪湖景区",
+        "category": "3A",
+        "district": "邛崃市",
+        "address": "邛崃市临邛镇小柏树水库",
+        "ticket": 20,
+        "open_hours": "08:30-18:00",
+        "description": "国家3A级景区，以湖泊、竹林与丘陵景观为主，湖光山色清幽，是近郊垂钓休闲地。",
+        "image_url": "/images/attractions/CD055.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.0465,
+          30.563
+        ]
+      },
+      "properties": {
+        "id": 56,
+        "code": "CD056",
+        "name": "铁像寺水街景区",
+        "category": "3A",
+        "district": "高新区",
+        "address": "高新区铁像寺路",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家3A级景区，融合川西水乡街巷与现代商业的开放式街区，是城南特色文化休闲地。",
+        "image_url": "/images/attractions/CD056.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.0779,
+          30.396
+        ]
+      },
+      "properties": {
+        "id": 57,
+        "code": "CD057",
+        "name": "兴隆湖湿地公园",
+        "category": "3A",
+        "district": "天府新区",
+        "address": "天府新区兴隆街道",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家3A级景区，天府新区核心生态湖区，环湖绿道与湿地景观是现代公园城市展示窗口。",
+        "image_url": "/images/attractions/CD057.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.303,
+          30.3445
+        ]
+      },
+      "properties": {
+        "id": 58,
+        "code": "CD058",
+        "name": "川西竹海景区",
+        "category": "3A",
+        "district": "邛崃市",
+        "address": "邛崃市平乐镇",
+        "ticket": 60,
+        "open_hours": "08:30-17:30",
+        "description": "国家3A级景区，十万亩竹林连绵成海，有高空玻璃桥与溪谷步道，是避暑观景胜地。",
+        "image_url": "/images/attractions/CD058.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.0556,
+          30.665
+        ]
+      },
+      "properties": {
+        "id": 59,
+        "code": "CD059",
+        "name": "宽窄巷子",
+        "category": "2A",
+        "district": "青羊区",
+        "address": "青羊区长顺上街",
+        "ticket": 0,
+        "open_hours": "全天开放",
+        "description": "国家2A级景区，由宽巷子、窄巷子、井巷子组成的清代古街，是成都最具代表性的城市文化名片。",
+        "image_url": "/images/attractions/CD059.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.7943,
+          30.4238
+        ]
+      },
+      "properties": {
+        "id": 60,
+        "code": "CD060",
+        "name": "新津区纯阳观公园",
+        "category": "2A",
+        "district": "新津区",
+        "address": "新津区纯阳路",
+        "ticket": 0,
+        "open_hours": "08:30-17:30",
+        "description": "国家2A级景区，以道教宫观纯阳观为核心的古建筑群，环境清幽，是川西著名道教文化场所。",
+        "image_url": "/images/attractions/CD060.jpg"
+      }
+    }
+  ]
+}

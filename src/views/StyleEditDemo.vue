@@ -356,13 +356,15 @@ function clearDraw() {
   height: 100%;
 }
 
-/* 绘制工具栏（左侧，避开缩放滑块） */
+/* 绘制工具栏（让开缩放滑块列，限高到比例尺上方，超高内部滚动） */
 .draw-toolbar {
   position: absolute;
-  top: 520px;
-  left: 14px;
+  top: 76px;
+  left: 116px;
   z-index: 20;
   width: 200px;
+  max-height: calc(100% - 236px);
+  overflow-y: auto;
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -442,6 +444,8 @@ function clearDraw() {
   right: 16px;
   z-index: 20;
   width: 292px;
+  max-height: calc(100% - 306px);
+  overflow-y: auto;
   padding: 14px 16px 12px;
   color: var(--ink);
 }

@@ -8,7 +8,8 @@ const links = [
   { to: '/publicmap', label: '公共地图加载' },
   { to: '/export', label: '地图打印输出' },
   { to: '/drawedit', label: '图形绘制' },
-  { to: '/styleedit', label: '样式交互编辑' }
+  { to: '/styleedit', label: '样式交互编辑' },
+  { to: '/lab3', label: '实验三·景区管理' }
 ]
 </script>
 

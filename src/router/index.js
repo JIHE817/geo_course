@@ -8,6 +8,7 @@ import PublicMapDemo from '../views/PublicMapDemo.vue'
 import MapExportDemo from '../views/MapExportDemo.vue'
 import DrawEditDemo from '../views/DrawEditDemo.vue'
 import StyleEditDemo from '../views/StyleEditDemo.vue'
+import Lab3ScenicDemo from '../views/Lab3ScenicDemo.vue'
 
 const routes = [
   { path: '/', redirect: '/tianditu' },
@@ -18,7 +19,8 @@ const routes = [
   { path: '/publicmap', component: PublicMapDemo },
   { path: '/export', component: MapExportDemo },
   { path: '/drawedit', component: DrawEditDemo },
-  { path: '/styleedit', component: StyleEditDemo }
+  { path: '/styleedit', component: StyleEditDemo },
+  { path: '/lab3', component: Lab3ScenicDemo }
 ]
 
 const router = createRouter({

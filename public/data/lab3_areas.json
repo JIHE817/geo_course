@@ -1,0 +1,68 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [103.53, 31.06],
+            [103.72, 31.06],
+            [103.72, 30.93],
+            [103.53, 30.93],
+            [103.53, 31.06]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "name": "青城山-都江堰文旅片区",
+        "description": "以都江堰水利工程与青城山世界文化遗产为核心，串联灌县古城，是成都世界遗产与道教文化的集中展示区。",
+        "image_url": "/images/attractions/CD001.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [104.1, 30.77],
+            [104.2, 30.77],
+            [104.2, 30.7],
+            [104.1, 30.7],
+            [104.1, 30.77]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 2,
+        "name": "大熊猫生态旅游片区",
+        "description": "以成都大熊猫繁育研究基地为核心的城市生态片区，集大熊猫科研保护、科普教育与旅游观光于一体。",
+        "image_url": "/images/attractions/CD007.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [103.57, 30.54],
+            [103.66, 30.54],
+            [103.66, 30.48],
+            [103.57, 30.48],
+            [103.57, 30.54]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 3,
+        "name": "安仁古镇文博片区",
+        "description": "以安仁古镇民国公馆建筑群与建川博物馆聚落为核心的文博旅游片区，被称为\u201c中国博物馆小镇\u201d。",
+        "image_url": "/images/attractions/CD002.jpg"
+      }
+    }
+  ]
+}

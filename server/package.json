@@ -1,0 +1,15 @@
+{
+  "name": "geo_course_lab3_server",
+  "private": true,
+  "version": "1.0.0",
+  "description": "实验三：PostGIS 最小 REST API（Express + pg）",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}

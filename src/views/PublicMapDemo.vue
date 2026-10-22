@@ -239,13 +239,15 @@ function switchTo(key) {
   box-shadow: 0 3px 10px rgba(69, 98, 128, 0.4);
 }
 
-/* 服务信息面板（左上，避开缩放滑块） */
+/* 服务信息面板（左上，让开缩放滑块；下移到顶栏切换条下方，避免与切换条重叠） */
 .info-panel {
   position: absolute;
-  top: 14px;
+  top: 76px;
   left: 120px;
   z-index: 20;
   width: 330px;
+  max-height: calc(100% - 236px);
+  overflow-y: auto;
   padding: 14px 16px 12px;
   font-size: 14px;
   line-height: 1.55;

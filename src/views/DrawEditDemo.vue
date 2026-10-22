@@ -334,7 +334,12 @@ function ensureSelect() {
 function onBoxEnd() {
   const extent = dragBoxInteraction.getGeometry().getExtent()
   const hits = []
-  source.forEachFeatureIntersectingExtent(extent, (feature) => hits.push(feature))
+  // 注意：forEachFeatureIntersectingExtent 的回调一旦返回真值就会提前终止遍历
+  // （Array.push 返回新长度，首个元素即返回 1，会只收集到第一个图形），
+  // 因此这里必须用块级函数体，确保回调返回 undefined。
+  source.forEachFeatureIntersectingExtent(extent, (feature) => {
+    hits.push(feature)
+  })
 
   const features = selectInteraction.getFeatures()
   features.clear()
@@ -515,7 +520,7 @@ function clearAll() {
   top: 76px;
   z-index: 20;
   width: 236px;
-  max-height: calc(100% - 100px);
+  max-height: calc(100% - 236px);
   overflow-y: auto;
   padding: 13px;
   display: flex;
@@ -628,6 +633,8 @@ function clearAll() {
   right: 16px;
   z-index: 20;
   width: 292px;
+  max-height: calc(100% - 306px);
+  overflow-y: auto;
   padding: 14px 16px 14px;
   color: var(--ink);
 }

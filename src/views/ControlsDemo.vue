@@ -195,14 +195,17 @@ function toggleLayerVisibility(item) {
   z-index: 15;
 }
 
-/* 左侧竖向排列：紧接在缩放滑块与缩放范围按钮下方 */
+/* 左侧工具条：让开 86px 宽的缩放滑块列（left 116），
+   并从顶部 76 开始，限高到比例尺上方，超出则内部滚动 */
 .toolbar {
   position: absolute;
-  top: 524px;
-  left: 14px;
+  top: 76px;
+  left: 116px;
   z-index: 20;
   flex-direction: column;
   align-items: stretch;
+  max-height: calc(100% - 236px);
+  overflow-y: auto;
 }
 
 .layer-panel {
@@ -210,5 +213,7 @@ function toggleLayerVisibility(item) {
   top: 76px;
   right: 16px;
   z-index: 20;
+  max-height: calc(100% - 306px);
+  overflow-y: auto;
 }
 </style>

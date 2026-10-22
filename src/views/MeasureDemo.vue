@@ -291,14 +291,16 @@ onBeforeUnmount(() => {
   height: 100%;
 }
 
-/* 左侧竖向排列：紧接在缩放滑块下方 */
+/* 左侧竖向工具条：让开缩放滑块列，限高到比例尺上方，超高则内部滚动 */
 .measure-toolbar {
   position: absolute;
-  top: 386px;
-  left: 14px;
+  top: 76px;
+  left: 116px;
   z-index: 20;
   flex-direction: column;
   align-items: stretch;
+  max-height: calc(100% - 236px);
+  overflow-y: auto;
 }
 
 /* 手机竖屏：按钮缩小一些，避免压到地图 */

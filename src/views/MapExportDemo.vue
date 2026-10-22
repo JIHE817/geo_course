@@ -170,10 +170,12 @@ function timestamp() {
 }
 .export-toolbar {
   position: absolute;
-  top: 524px;
-  left: 14px;
+  top: 76px;
+  left: 116px;
   z-index: 20;
   flex-direction: column;
   align-items: stretch;
+  max-height: calc(100% - 236px);
+  overflow-y: auto;
 }
 </style>
